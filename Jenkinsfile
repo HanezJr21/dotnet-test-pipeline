@@ -1,7 +1,7 @@
 node {
     stage('Preparation') { // for display purposes
         git branch:'main', url: 'https://github.com/HanezJr21/unit-testing-using-dotnet-test.git'
-        sh 'ls -l'
+        sh 'ls -lt'
     }
     stage('Build') {
         sh 'dotnet test --logger "trx;LogFileName=unit_tests.trx"'
