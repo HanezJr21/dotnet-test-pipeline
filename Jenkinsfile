@@ -1,13 +1,13 @@
 pipeline {
     stages{
         stage('Preparation') {
-            git 'https://github.com/HanezJr21/ExpressJS.git'
+            git 'https://github.com/HanezJr21/unit-testing-using-dotnet-test.git'
         }
         stage('Build') {
-            sh "npm install"
+            sh 'dotnet test --logger "trx;LogFileName=unit_tests.xml"'
         }
         stage('Results') {
-            archiveArtifacts artifacts: '**', excludes: 'test*/'
+            mstest testResultsFile:"**/*.trx", keepLongStdio: true
         }
     }
 }
