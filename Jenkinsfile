@@ -3,22 +3,22 @@ pipeline {
     stages{
         stage('Preparation') {
             steps{
-				script{
+                script{
                     git branch:'main', url: 'https://github.com/HanezJr21/unit-testing-using-dotnet-test.git'
                     sh 'pwd'
                     sh 'ls -ltr'
-				}
-			}
+                }
+            }
         }
         stage('Build') {
             steps{
-				script{
-					sh 'dotnet test --logger "trx;LogFileName=unit_tests.xml"'
-				}
-			}
+                script{
+                    sh 'dotnet test --logger "trx;LogFileName=unit_tests.xml"'
+                }
+            }
         }
     }
-	post {
+    post {
         always{
             xunit (
                 thresholds: [ skipped(failureThreshold: '0'), failed(failureThreshold: '0') ],
