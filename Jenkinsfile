@@ -4,7 +4,6 @@ pipeline {
         stage('Preparation') {
             steps{
 				script{
-					sh "rm -rf *"
                     git branch:'main', url: 'https://github.com/HanezJr21/unit-testing-using-dotnet-test.git'
                     sh 'pwd'
                     sh 'ls -ltr'
