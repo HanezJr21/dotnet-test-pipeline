@@ -6,6 +6,7 @@ pipeline {
                 script{
                     git branch:'main', url: 'https://github.com/HanezJr21/unit-testing-using-dotnet-test.git'
                     sh 'pwd'
+                    sh 'git submodule update --init --recursive'
                     sh 'ls -ltr'
                 }
             }
