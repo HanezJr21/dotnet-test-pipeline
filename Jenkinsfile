@@ -4,7 +4,7 @@ pipeline {
         stage('Preparation') {
             steps{
                 script{
-                    git branch:'main', url: 'https://github.com/HanezJr21/unit-testing.git'
+                    git branch:'main', url: 'https://github.com/HanezJr21/unit-testing.git', credentialsId:'46c0670e-8f6e-4097-934b-ac52ca3e7f16'
                     sh 'pwd'
                     sh 'git submodule update --init --recursive'
                     sh 'ls -ltr'
